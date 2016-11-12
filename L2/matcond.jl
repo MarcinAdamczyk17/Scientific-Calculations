@@ -1,5 +1,3 @@
-
-
 function matcond(n::Int, c::Float64)
 # Function generates a random square matrix A of size n with
 # a given condition number c.
@@ -19,7 +17,3 @@ function matcond(n::Int, c::Float64)
         (U,S,V)=svd(rand(n,n))
         return U*diagm(linspace(1.0,c,n))*V'
 end
-
-
-
-

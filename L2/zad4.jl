@@ -1,8 +1,29 @@
 #Obliczenia Naukowe
 #Autor: Marcin Aamczyk
 #nr indeksu: 221 429
-workspace();
 
-using PyPlot
-x = linspace(0,2*pi,1000); y = sin(3*x + 4*cos(2*x))
-plot(x, y, color="red", linewidth=2.0, linestyle="--")
+#MAIN
+
+
+r = 3
+
+p32 = Float32(0.01)
+for i=1:40
+  p32 = p32 + r * p32 * (Float32(1.0) - p32)
+end
+println(p32)
+
+p32 = Float32(0.01)
+for i=1:4
+  for j=1:10
+    p32 = p32 + r * p32 * (Float32(1.0) - p32)
+  end
+  p32 = floor(p32,3)
+end
+println(p32)
+
+p64 = 0.01
+for i=1:40
+  p64 = p64 + r * p64 * (1.0 - p64)
+end
+println(p64)
